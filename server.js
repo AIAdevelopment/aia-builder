@@ -46,7 +46,8 @@ app.post('/build', async (req, res) => {
   const archive = archiver('zip', { zlib: { level: 9 } });
 
   archive.pipe(output);
-  archive.directory(outputDir + '/', false);
+  archive.directory(outputDir, false);
+
 
   await archive.finalize();
 
